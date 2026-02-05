@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "High-performance numerical computing library for Ruby"
   spec.description   = "NumRb is a numerical computing library powered by Zig for high-performance array operations"
-  spec.homepage      = "https://github.com/yuina368/num_rb"
+  spec.homepage      = "https://github.com/yuina368/NumRb"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
@@ -15,5 +15,5 @@ Gem::Specification.new do |spec|
   spec.extensions    = ["ext/num_rb/extconf.rb"]
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/your-username/num_rb"
+  spec.metadata["source_code_uri"] = "https://github.com/yuina368/NumRb"
 end
