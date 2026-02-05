@@ -1,0 +1,10 @@
+*.o
+*.so
+*.a
+Makefile
+mkmf.log
+ext/num_rb/*.o
+ext/num_rb/*.so
+ext/num_rb/*.a
+ext/num_rb/Makefile
+ext/num_rb/mkmf.log
