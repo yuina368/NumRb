@@ -19,7 +19,7 @@ export fn zig_divide(a: f64, b: f64) f64 {
 }
 
 // 配列の要素ごとの加算
-export fn zig_array_add(arr1: [*]const f64, arr2: [*]const f64, len: usize) callconv(.C) [*]f64 {
+export fn zig_array_add(arr1: [*]const f64, arr2: [*]const f64, len: usize) [*]f64 {
     const allocator = std.heap.c_allocator;
     const result = allocator.alloc(f64, len) catch unreachable;
 
@@ -32,7 +32,7 @@ export fn zig_array_add(arr1: [*]const f64, arr2: [*]const f64, len: usize) call
 }
 
 // 配列の要素ごとの乗算
-export fn zig_array_multiply(arr1: [*]const f64, arr2: [*]const f64, len: usize) callconv(.C) [*]f64 {
+export fn zig_array_multiply(arr1: [*]const f64, arr2: [*]const f64, len: usize) [*]f64 {
     const allocator = std.heap.c_allocator;
     const result = allocator.alloc(f64, len) catch unreachable;
 
@@ -45,14 +45,14 @@ export fn zig_array_multiply(arr1: [*]const f64, arr2: [*]const f64, len: usize)
 }
 
 // Zigで確保したメモリを解放する関数 (追加)
-export fn zig_free(ptr: [*]f64) callconv(.C) void {
+export fn zig_free(ptr: [*]f64) void {
     // 注意: サイズ情報が必要だがC APIでは取得不可
     // wrapper.c側で管理する必要がある
     _ = ptr;
 }
 
 // 配列の合計
-export fn zig_array_sum(arr: [*]const f64, len: usize) callconv(.C) f64 {
+export fn zig_array_sum(arr: [*]const f64, len: usize) f64 {
     var sum: f64 = 0.0;
     var i: usize = 0;
     while (i < len) : (i += 1) {
@@ -62,7 +62,7 @@ export fn zig_array_sum(arr: [*]const f64, len: usize) callconv(.C) f64 {
 }
 
 // 配列の平均
-export fn zig_array_mean(arr: [*]const f64, len: usize) callconv(.C) f64 {
+export fn zig_array_mean(arr: [*]const f64, len: usize) f64 {
     if (len == 0) return 0.0;
     const sum = zig_array_sum(arr, len);
     return sum / @as(f64, @floatFromInt(len));
